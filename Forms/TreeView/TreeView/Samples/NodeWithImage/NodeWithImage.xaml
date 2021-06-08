@@ -18,7 +18,7 @@
                 <RowDefinition Height="40" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Button Command="{Binding RefreshCommand}" Text="Refresh" />
+            <Button Command="{Binding RefreshCommand}" Text="Enter selection mode" />
             <sfTreeView:SfTreeView
                 x:Name="treeView"
                 Grid.Row="1"

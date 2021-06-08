@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sample:SampleView
+    x:Class="SampleBrowser.SfTreeView.NodeWithImage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:SfCheckBox="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:local="clr-namespace:SampleBrowser.SfTreeView"
+    xmlns:sample="clr-namespace:SampleBrowser.Core;assembly=SampleBrowser.Core"
+    xmlns:sfTreeView="clr-namespace:Syncfusion.XForms.TreeView;assembly=Syncfusion.SfTreeView.XForms"
+    xmlns:treeviewengine="clr-namespace:Syncfusion.TreeView.Engine;assembly=Syncfusion.SfTreeView.XForms"
+    x:Name="thePage">
+    <sample:SampleView.BindingContext>
+        <local:FileManagerViewModel x:Name="viewModel" />
+    </sample:SampleView.BindingContext>
+    <sample:SampleView.Content>
+        <Grid Margin="0" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Button Command="{Binding RefreshCommand}" Text="Refresh" />
+            <sfTreeView:SfTreeView
+                x:Name="treeView"
+                Grid.Row="1"
+                AutoExpandMode="None"
+                ExpanderWidth="40"
+                Indentation="15"
+                IsAnimationEnabled="False"
+                ItemHeight="40"
+                ItemsSource="{Binding Folders}"
+                NodePopulationMode="Instant"
+                NodeSizeMode="Dynamic"
+                NotificationSubscriptionMode="PropertyChange">
+                <sfTreeView:SfTreeView.HierarchyPropertyDescriptors>
+                    <treeviewengine:HierarchyPropertyDescriptor ChildPropertyName="Files" TargetType="{x:Type local:Folder}" />
+                    <treeviewengine:HierarchyPropertyDescriptor ChildPropertyName="SubFiles" TargetType="{x:Type local:File}" />
+                </sfTreeView:SfTreeView.HierarchyPropertyDescriptors>
+                <sfTreeView:SfTreeView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid
+                                    x:Name="grid"
+                                    BackgroundColor="Transparent"
+                                    RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="1" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Row="0" RowSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="40" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Padding="5,5,5,5">
+                                            <Image
+                                                HeightRequest="35"
+                                                HorizontalOptions="Center"
+                                                Source="{Binding ImageIcon}"
+                                                VerticalOptions="Center"
+                                                WidthRequest="35" />
+                                        </Grid>
+                                        <Grid
+                                            Grid.Column="1"
+                                            Padding="1,0,0,0"
+                                            RowSpacing="1"
+                                            VerticalOptions="Center">
+                                            <Label
+                                                FontSize="{OnPlatform Android={OnIdiom Phone=16,
+                                                                                       Tablet=18},
+                                                                      iOS={OnIdiom Phone=16,
+                                                                                   Tablet=18},
+                                                                      UWP={OnIdiom Phone=18,
+                                                                                   Tablet=20,
+                                                                                   Desktop=20}}"
+                                                LineBreakMode="NoWrap"
+                                                Text="{Binding FileName}"
+                                                TextColor="Black"
+                                                VerticalTextAlignment="Center" />
+                                        </Grid>
+                                    </Grid>
+                                    <SfCheckBox:SfCheckBox
+                                        x:Name="CheckBox"
+                                        Grid.Column="1"
+                                        FontSize="16"
+                                        IsChecked="{Binding IsChecked, Mode=TwoWay}"
+                                        IsVisible="{Binding BindingContext.IsCheckboxVisible, Source={x:Reference thePage}, Mode=TwoWay}"
+                                        TextColor="Black"
+                                        VerticalOptions="Center" />
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </sfTreeView:SfTreeView.ItemTemplate>
+            </sfTreeView:SfTreeView>
+        </Grid>
+    </sample:SampleView.Content>
+</sample:SampleView>

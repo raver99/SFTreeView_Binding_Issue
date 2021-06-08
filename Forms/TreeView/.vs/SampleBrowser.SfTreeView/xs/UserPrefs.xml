@@ -1,0 +1,23 @@
+﻿<Properties StartupConfiguration="{5E1CED00-29D4-4956-9F53-B28B1EC67A01}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TreeView/Samples/NodeWithImage/NodeWithImage.xaml">
+    <Files>
+      <File FileName="TreeView/Samples/NodeWithImage/NodeWithImage.xaml" Line="81" Column="74" />
+      <File FileName="TreeView/Samples/NodeWithImage/Model/FileManager.cs" />
+      <File FileName="TreeView/Samples/NodeWithImage/ViewModel/FileManagerViewModel.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SampleBrowser.SfTreeView" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.SampleBrowser.SfTreeView.Android PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
+</Properties>
